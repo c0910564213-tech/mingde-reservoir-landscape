@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- 柴棺龜 Yellow-margined Box Turtle cursor -->
+  <!-- Shell body -->
+  <ellipse cx="16" cy="17" rx="10" ry="8" fill="#8B6914" stroke="#5C4A0E" stroke-width="1"/>
+  <!-- Shell pattern - hexagonal plates -->
+  <ellipse cx="16" cy="16" rx="6" ry="4.5" fill="#A0792A" stroke="#6B5317" stroke-width="0.8"/>
+  <ellipse cx="16" cy="16" rx="3" ry="2.2" fill="#BF9530" stroke="#8B6914" stroke-width="0.5"/>
+  <!-- Yellow margin lines (characteristic of 柴棺龜) -->
+  <ellipse cx="16" cy="17" rx="10" ry="8" fill="none" stroke="#FFD700" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <!-- Shell ridge line -->
+  <line x1="10" y1="17" x2="22" y2="17" stroke="#6B5317" stroke-width="0.6"/>
+  <!-- Head -->
+  <ellipse cx="24" cy="13" rx="3.5" ry="2.8" fill="#5D6B3A" stroke="#3D4A25" stroke-width="0.8"/>
+  <!-- Yellow head stripe (柴棺龜特徵) -->
+  <line x1="22" y1="12" x2="27" y2="11.5" stroke="#FFD700" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Eye -->
+  <circle cx="25.5" cy="12" r="1" fill="#1a1a1a"/>
+  <circle cx="25.8" cy="11.7" r="0.35" fill="white"/>
+  <!-- Front right leg -->
+  <ellipse cx="23" cy="21" rx="2" ry="1.5" fill="#5D6B3A" stroke="#3D4A25" stroke-width="0.6" transform="rotate(-20 23 21)"/>
+  <!-- Front left leg (top) -->
+  <ellipse cx="22" cy="11" rx="1.8" ry="1.2" fill="#5D6B3A" stroke="#3D4A25" stroke-width="0.6" transform="rotate(15 22 11)"/>
+  <!-- Back right leg -->
+  <ellipse cx="9" cy="22" rx="2" ry="1.3" fill="#5D6B3A" stroke="#3D4A25" stroke-width="0.6" transform="rotate(20 9 22)"/>
+  <!-- Back left leg -->
+  <ellipse cx="10" cy="11" rx="1.8" ry="1.2" fill="#5D6B3A" stroke="#3D4A25" stroke-width="0.6" transform="rotate(-10 10 11)"/>
+  <!-- Tail -->
+  <path d="M6 18 Q3 19 4 20" stroke="#5D6B3A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>
