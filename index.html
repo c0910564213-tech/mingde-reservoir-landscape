@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>老田寮茶陶水岸 ． 明德山居慢活 | 苗栗明德水庫東北岸休閒農業區整體規劃設計 戰情導覽室</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terra: '#c86d51',
+            terradark: '#a8533b',
+            forest: {
+              900: '#081c15',
+              850: '#0e261d',
+              800: '#1b4332',
+              700: '#2d6a4f',
+              600: '#40916c',
+              500: '#52b788',
+              400: '#74c69d',
+              300: '#95d5b2',
+              200: '#b7e4c7',
+              100: '#d8f3dc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif TC', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css?v=20261112v4">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans selection:bg-emerald-500 selection:text-white">
+
+  <!-- Bright Sunny Mountain Waterfront Backdrop -->
+  <div class="lake-backdrop">
+    <div class="lake-waves">
+      <svg class="lake-wave-svg lake-wave-back" viewBox="0 0 2880 220" preserveAspectRatio="none">
+        <path fill="rgba(16, 185, 129, 0.12)" d="M0,110 C240,60 480,160 720,110 C960,60 1200,160 1440,110 C1680,60 1920,160 2160,110 C2400,60 2640,160 2880,110 L2880,220 L0,220 Z"/>
+      </svg>
+      <svg class="lake-wave-svg lake-wave-front" viewBox="0 0 2880 220" preserveAspectRatio="none">
+        <path fill="rgba(255, 255, 255, 0.65)" d="M0,140 C240,95 480,185 720,140 C960,95 1200,185 1440,140 C1680,95 1920,185 2160,140 C2400,95 2640,185 2880,140 L2880,220 L0,220 Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Top Live Indicator Ticker Bar (Bright Mode - Responsive & No Truncation) -->
+  <div class="bg-white/95 border-b border-emerald-100 text-xs py-1.5 px-3 sm:px-4 sticky top-0 z-50 backdrop-blur-md shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap items-center justify-between gap-2">
+      <!-- Left Indicator Badges -->
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
+        <span class="inline-flex items-center gap-1 font-bold text-emerald-800 uppercase tracking-wider text-[11px] shrink-0 bg-emerald-100/80 px-2 py-0.5 rounded border border-emerald-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          水庫指標
+        </span>
+
+        <!-- Ticker Item: 水庫滿水位 -->
+        <div class="flex items-center gap-1 shrink-0 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 text-[11px]">
+          <span class="text-slate-600">常時水位:</span>
+          <span class="font-mono font-bold text-sky-800">61.0m</span>
+          <span class="text-emerald-700 text-[10px] hidden sm:inline">(退縮保護)</span>
+        </div>
+
+        <!-- Ticker Item: 綠覆率 -->
+        <div class="flex items-center gap-1 shrink-0 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 text-[11px]">
+          <span class="text-slate-600">全區綠覆:</span>
+          <span class="font-mono font-bold text-emerald-800">92.4%</span>
+          <span class="text-emerald-700 text-[10px] hidden sm:inline">(≥90%)</span>
+        </div>
+
+        <!-- Ticker Item: 設施面積比 -->
+        <div class="flex items-center gap-1 shrink-0 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 text-[11px]">
+          <span class="text-slate-600">設施總量:</span>
+          <span class="font-mono font-bold text-amber-800">18.6%</span>
+          <span class="text-emerald-700 text-[10px] hidden sm:inline">(≤40%)</span>
+        </div>
+
+        <!-- Ticker Item: 建築簷高管制 -->
+        <div class="flex items-center gap-1 shrink-0 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 text-[11px]">
+          <span class="text-slate-600">簷高管制:</span>
+          <span class="font-mono font-bold text-purple-800">≤10.5m</span>
+        </div>
+
+        <!-- Ticker Item: 柴棺龜監測 -->
+        <div class="flex items-center gap-1 shrink-0 bg-orange-50 px-2 py-0.5 rounded border border-orange-200 text-[11px]">
+          <span class="text-slate-600">珍稀保育:</span>
+          <span class="font-mono font-bold text-terra">柴棺龜</span>
+          <span class="text-emerald-700 text-[10px] hidden sm:inline">(廊道暢通)</span>
+        </div>
+      </div>
+
+      <!-- Right Ticker Controls -->
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="btn-bg-switch" class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition flex items-center gap-1 shadow-xs" title="點擊切換晴空山中水岸背景風格">
+          <i class="fa-solid fa-mountain-sun text-[10px] text-emerald-600"></i>
+          <span id="bg-switch-label">晴空水岸</span>
+        </button>
+        <button id="btn-ambient-audio" class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 transition flex items-center gap-1 shadow-xs" title="開啟水庫山林微風環境音">
+          <i class="fa-solid fa-volume-high text-[10px]"></i>
+          <span class="hidden sm:inline">環境音效</span>
+        </button>
+        <span class="text-[11px] text-slate-500 hidden md:inline">時間: <span id="live-ticker-time" class="font-mono text-slate-800 font-semibold">22:00</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header (Bright Mode) -->
+  <header class="bg-white/90 border-b border-slate-200 sticky top-7 z-40 backdrop-blur-md shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 py-3.5 sm:px-6 lg:px-8">
+      <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3">
+        <!-- Brand Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-terra flex items-center justify-center shadow-md shadow-emerald-700/20 text-white text-xl">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl font-black tracking-tight text-slate-900 font-serif">老田寮茶陶水岸 ． 明德山居慢活</h1>
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-terra/10 text-terra border border-terra/30 flex items-center gap-1">
+                <i class="fa-solid fa-award"></i> 期末評圖 3A0 總展板典藏版
+              </span>
+              <button id="cursor-mode-btn" class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 hover:scale-105 transition hidden sm:inline-flex items-center gap-1">
+                <i class="fa-solid fa-compass"></i> 模式：標準巡航
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-0.5">
+              主規劃者：張茗豪 (0910564213) • 協同設計：陳文鎮 • 文和豪 規劃組 • 苗栗縣頭屋鄉明德水庫東北岸
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab Navigation (6x2 Grid) -->
+        <nav class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 bg-slate-100/90 p-1.5 rounded-xl border border-slate-200/90 w-full xl:w-auto shadow-inner">
+          <!-- Row 1 -->
+          <button data-tab="overview" class="nav-tab-btn active justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-white bg-emerald-600 shadow-sm whitespace-nowrap">
+            <i class="fa-solid fa-chart-pie"></i> 戰情總覽
+          </button>
+          <button data-tab="zones" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-cubes"></i> 四區對決
+          </button>
+          <button data-tab="defense" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-shield-halved text-amber-600"></i> 評圖防線
+          </button>
+          <button data-tab="calculator" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-calculator text-cyan-600"></i> 法規試算器
+          </button>
+          <button data-tab="pillars" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-seedling text-emerald-600"></i> 三生共榮
+          </button>
+          <button data-tab="terrain" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-mountain text-blue-600"></i> 水土坡度
+          </button>
+
+          <!-- Row 2 -->
+          <button data-tab="ecology" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-shield-cat text-rose-600"></i> 柴棺龜生態
+          </button>
+          <button data-tab="cases" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-scale-balanced text-purple-600"></i> 案例轉譯
+          </button>
+          <button data-tab="strategy" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-network-wired text-yellow-600"></i> 點線面策略
+          </button>
+          <button data-tab="detail" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-compass-drafting text-teal-600"></i> 實質專項
+          </button>
+          <button data-tab="interview" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-book-open text-orange-600"></i> 陳奶奶訪談
+          </button>
+          <button data-tab="gallery" class="nav-tab-btn justify-center px-2 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-600 hover:bg-white hover:text-slate-900 whitespace-nowrap">
+            <i class="fa-solid fa-images text-terra"></i> 3A0 圖庫展覽
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: 戰情總覽 (OVERVIEW) -->
+    <!-- ========================================== -->
+    <section id="tab-overview" class="tab-panel space-y-6">
+      
+      <!-- Top Hero Banner Card -->
+      <div class="relative overflow-hidden rounded-2xl bg-white/90 border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+          <div class="lg:col-span-2 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+              <i class="fa-solid fa-leaf"></i> 晴空水岸高地 ． 六級產業化 ． 低衝擊開發 (LID)
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 font-serif tracking-tight">
+              老田寮茶陶水岸 ． 明德山居慢活
+            </h2>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              以苗栗明德水庫東北岸老田寮客庄為基底，深度縫合<strong>「明德柴窯陶藝」</strong>、<strong>「橙香森林果園」</strong>與<strong>「小路彎彎露營」</strong>三大既有產業實體。在嚴格水質水量保護下，推動有機草生野茶、柴燒陶藝文創、低光害賞螢與柴棺龜棲地復育，打造人與自然永續共榮的新典範。
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1 text-xs">
+              <span class="bg-slate-100 border border-slate-200 px-2.5 py-1 rounded text-slate-700 font-medium">
+                <i class="fa-solid fa-location-dot text-rose-500 mr-1"></i> 苗栗縣頭屋鄉老田寮水岸
+              </span>
+              <span class="bg-slate-100 border border-slate-200 px-2.5 py-1 rounded text-slate-700 font-medium">
+                <i class="fa-solid fa-tree text-emerald-600 mr-1"></i> 綠覆率 92.4%
+              </span>
+              <span class="bg-slate-100 border border-slate-200 px-2.5 py-1 rounded text-slate-700 font-medium">
+                <i class="fa-solid fa-shield-halved text-cyan-600 mr-1"></i> 水庫蓄水線退縮 30m
+              </span>
+            </div>
+          </div>
+          <!-- Quick Action Card -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center space-y-3 shadow-xs">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">期末評圖成果文件庫</span>
+            <div class="text-2xl font-black text-emerald-800 font-mono">104 頁論文 + 3A0 展板</div>
+            <p class="text-xs text-slate-600">已完整解構並提取全案 91 幅超高解析度圖版</p>
+            <div class="grid grid-cols-2 gap-2 pt-2">
+              <a href="../0910564213張茗豪3A0 1113總.pdf" target="_blank" class="px-3 py-2 bg-terra hover:bg-terradark text-white rounded-lg text-xs font-bold transition flex items-center justify-center gap-1 shadow-sm">
+                <i class="fa-solid fa-file-pdf"></i> 開啟 3A0 展板
+              </a>
+              <a href="../總1113.docx" target="_blank" class="px-3 py-2 bg-white hover:bg-slate-100 text-slate-800 rounded-lg text-xs font-bold border border-slate-300 transition flex items-center justify-center gap-1 shadow-sm">
+                <i class="fa-solid fa-file-word text-blue-600"></i> 完整論文 DOCX
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Master Plan Sandtable -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Master Plan Map with Hotspots -->
+        <div class="lg:col-span-2 bg-white/90 border border-slate-200 rounded-2xl p-5 space-y-4 shadow-sm">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+              <h3 class="font-bold text-slate-900 text-base">全區配置互動導覽沙盤 (Master Plan)</h3>
+            </div>
+            <span class="text-xs text-slate-500">點擊圖面座標或下方按鈕即時探索</span>
+          </div>
+
+          <!-- Sandtable Map Canvas Container -->
+          <div class="relative w-full aspect-[16/10] bg-slate-100 rounded-xl overflow-hidden border border-slate-300 flex items-center justify-center shadow-inner">
+            <img src="images/image88.png" alt="全區平面配置總圖" class="w-full h-full object-cover" id="master-plan-view">
+
+            <!-- Interactive Hotspots Overlay -->
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 48%; left: 38%;" data-pin="1" title="點擊檢視：明德柴窯藝境">
+              1
+            </button>
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 32%; left: 62%;" data-pin="2" title="點擊檢視：橙香茶橘果園">
+              2
+            </button>
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 66%; left: 70%;" data-pin="3" title="點擊檢視：小路彎彎露營區">
+              3
+            </button>
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 75%; left: 25%;" data-pin="4" title="點擊檢視：水岸生態迎賓區">
+              4
+            </button>
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 18%; left: 78%;" data-pin="5" title="點擊檢視：東北高地眺望台">
+              5
+            </button>
+            <button class="map-spot-pin map-pin-pulse absolute w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border-2 border-white shadow-xl cursor-pointer hover:scale-125 transition-transform" style="top: 84%; left: 52%;" data-pin="6" title="點擊檢視：LID 污水淨化沉砂池">
+              6
+            </button>
+          </div>
+
+          <!-- Quick Chip Buttons -->
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <button class="zone-quick-chip active px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-600 text-white transition shadow-xs" data-pin="1">1. 明德柴窯區</button>
+            <button class="zone-quick-chip px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-pin="2">2. 橙香茶橘森林</button>
+            <button class="zone-quick-chip px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-pin="3">3. 小路野奢營地</button>
+            <button class="zone-quick-chip px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-pin="4">4. 水岸迎賓緩衝</button>
+            <button class="zone-quick-chip px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-pin="5">5. 東北高地眺望台</button>
+            <button class="zone-quick-chip px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-pin="6">6. LID 沉砂滯洪池</button>
+          </div>
+        </div>
+
+        <!-- Right 1 Col: Dynamic Detail Panel -->
+        <div class="bg-white/90 border border-slate-200 rounded-2xl p-5 flex flex-col justify-between shadow-sm space-y-4">
+          <div>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+              <span id="pin-badge" class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                文化產業核心 ． 職人合院
+              </span>
+              <span class="text-[11px] text-slate-500">分區詳解</span>
+            </div>
+
+            <h4 id="pin-title" class="text-lg font-bold text-slate-900 mt-3 font-serif">柴窯藝境與匠人創作區 (明德窯)</h4>
+            <p id="pin-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">
+              以歷史明德柴窯為人文靈魂，保存四天三夜柴燒落灰之美。將廢棄陶片與失敗陶甕轉化為園區步道鋪面與樹牌，提供陶藝拉坯、捏陶體驗與客庄茶器展售。
+            </p>
+
+            <div class="my-4 rounded-xl overflow-hidden border border-slate-200 h-36 bg-slate-100">
+              <img id="pin-img" src="images/image87.png" alt="分區設計" class="w-full h-full object-cover">
+            </div>
+
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold text-slate-800">核心機能與規劃重點：</span>
+              <ul id="pin-points" class="space-y-1.5">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 text-center">
+            <span class="text-[11px] text-slate-500">嚴格恪守休閒農業輔導管理辦法 ． 減量設計原則</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three Pillars of Mingde Hill Summary Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Pillar 1 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 hover:border-emerald-500 transition-all space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-lemon"></i>
+            </span>
+            <span class="text-xs font-bold text-amber-700">經濟人氣引擎</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base font-serif">橙香森林 ． 草生柑橘果園</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            位於向陽緩坡處，擁有大面積老欉桶柑。落實草生友善農法，春季柚花飄香引蝶，秋冬金黃採果；搭配全景玻璃屋景觀餐廳，構築六級食農體驗亮點。
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 hover:border-emerald-500 transition-all space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-campground"></i>
+            </span>
+            <span class="text-xs font-bold text-emerald-700">深度停留核心</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base font-serif">小路彎彎 ． 山林野奢露營</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            緊臨果園與原始次生林交界，順應緩坡等高線配置離地高架帳篷。夜間實施低光害友善照明，保護條背螢火蟲與山羌棲地，動靜互補延長遊客停留時光。
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 hover:border-emerald-500 transition-all space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="w-9 h-9 rounded-lg bg-orange-100 text-terra flex items-center justify-center text-lg">
+              <i class="fa-solid fa-fire"></i>
+            </span>
+            <span class="text-xs font-bold text-terra">文化人文靈魂</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base font-serif">明德柴窯 ． 客庄柴燒工藝</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            傳承陳奶奶四天三夜柴火溫度的傳統登窯。不上釉藥，純靠木材落灰與火痕燒結獨特肌理。結合陶藝DIY、廢陶循環再生步道與客庄茶器體驗，喚醒老田寮手作記憶。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: 四區對決 (ZONES MATRIX) -->
+    <!-- ========================================== -->
+    <section id="tab-zones" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 font-serif">四大核心機能分區深度對比</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          將基地立體佈局為文化、生產、旅宿與生態四大維度，互補共構打造完整遊程迴路。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Zone 1 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="h-36 rounded-lg overflow-hidden border border-slate-200 mb-3 bg-slate-100">
+              <img src="images/image91.png" alt="明德柴窯" class="w-full h-full object-cover">
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-terra border border-orange-200">核心工藝區</span>
+            <h3 class="font-bold text-slate-900 text-base mt-1">柴窯藝境與匠人創作區</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 mt-2">
+              <li>• <strong>主力機能：</strong>柴燒工坊、拉坯捏陶DIY、茶器專賣</li>
+              <li>• <strong>材料語言：</strong>在地相思木、落灰柴燒陶片、客家合院黑瓦</li>
+              <li>• <strong>法規應對：</strong>歷史柴窯結構原貌保留，現代陶藝導入安全電燒</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-200 text-[11px] text-slate-500">
+            空間定位：全場人文靈魂核心
+          </div>
+        </div>
+
+        <!-- Zone 2 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="h-36 rounded-lg overflow-hidden border border-slate-200 mb-3 bg-slate-100">
+              <img src="images/image4.png" alt="橙香森林" class="w-full h-full object-cover">
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">主要農業生產</span>
+            <h3 class="font-bold text-slate-900 text-base mt-1">茶橘森林與里山食農區</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 mt-2">
+              <li>• <strong>主力機能：</strong>桶柑採果、魯冰花海、野茶梯田、玻璃屋餐廳</li>
+              <li>• <strong>材料語言：</strong>草生綠毯、石砌擋土駁坎、枕木步道</li>
+              <li>• <strong>法規應對：</strong>維持80%以上實質農業生產面積，禁用過量化肥</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-200 text-[11px] text-slate-500">
+            空間定位：吸客火車頭與經濟命脈
+          </div>
+        </div>
+
+        <!-- Zone 3 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="h-36 rounded-lg overflow-hidden border border-slate-200 mb-3 bg-slate-100">
+              <img src="images/image5.png" alt="小路彎彎" class="w-full h-full object-cover">
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">森林旅宿慢活</span>
+            <h3 class="font-bold text-slate-900 text-base mt-1">森林野奢露營與靜心區</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 mt-2">
+              <li>• <strong>主力機能：</strong>免搭帳野奢露營、星空帳篷、微光賞螢小徑</li>
+              <li>• <strong>材料語言：</strong>高架木構棧道、離地透水平台、低光害燈具</li>
+              <li>• <strong>法規應對：</strong>露營設施總量受休閒農場10%上限嚴格管制</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-200 text-[11px] text-slate-500">
+            空間定位：延長停留時間與夜間產值
+          </div>
+        </div>
+
+        <!-- Zone 4 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 flex flex-col justify-between shadow-xs">
+          <div>
+            <div class="h-36 rounded-lg overflow-hidden border border-slate-200 mb-3 bg-slate-100">
+              <img src="images/image49.png" alt="水岸生態緩衝" class="w-full h-full object-cover">
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-200">水質安全屏障</span>
+            <h3 class="font-bold text-slate-900 text-base mt-1">水庫水岸生態緩衝與迎賓區</h3>
+            <ul class="text-xs text-slate-600 space-y-1.5 mt-2">
+              <li>• <strong>主力機能：</strong>遊客導視接待、透水停車、生態沉砂過濾池</li>
+              <li>• <strong>材料語言：</strong>透水碎石植草格、自然階梯草溝、耐淹植被護岸</li>
+              <li>• <strong>法規應對：</strong>水庫滿水位 61m 退縮 15-30m，嚴禁固定式建築</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-200 text-[11px] text-slate-500">
+            空間定位：水源水質零污染護城河
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 評圖防線 (DEFENSE & CHECKLIST) -->
+    <!-- ========================================== -->
+    <section id="tab-defense" class="tab-panel hidden space-y-6">
+      
+      <!-- Top Defense Ladder Banner -->
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
+              <i class="fa-solid fa-clipboard-check"></i> 評審委員核心答辯對策表
+            </span>
+            <h2 class="text-xl font-black text-slate-900 font-serif mt-2">評圖意見回覆與八大專業調整防線</h2>
+            <p class="text-xs text-slate-600 mt-1">
+              以法規紅線、水保計算、微氣候資料與六級化定位，精準回應各階段評圖老師的核心質疑。
+            </p>
+          </div>
+          <div class="text-right shrink-0">
+            <span class="text-xs text-slate-500">答辯合規完成率</span>
+            <div id="checklist-score" class="text-3xl font-black text-emerald-600 font-mono">100%</div>
+            <div class="w-32 bg-slate-200 h-2 rounded-full overflow-hidden mt-1">
+              <div id="checklist-bar" class="bg-emerald-500 h-full w-full transition-all duration-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Defense Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Question 1 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">1</span>
+              使用者引導方式為何？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>於水庫路入口處設立低碳指標系統與緩坡漫步步道，利用植栽與在地石材鋪面自然引導遊客進入東北岸高地；結合三大核心亮點設置清楚視覺導視牌，避免遊客誤闖生態緩衝區。
+          </p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">2</span>
+              體驗模式與其他地點鑑別性？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>結合東北岸獨特的「茶園地景 × 明德窯柴燒工藝 × 山林慢活露營」，創造全臺少見的「水庫高地茶香與陶藝」沉浸式體驗，搭配水庫遠景與微氣候優勢，樹立山居慢活獨特辨識度。
+          </p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">3</span>
+              土地使用分區與法定限制？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>基地屬山坡地保育區，嚴格恪守《休閒農業輔導管理辦法》規定：維持 90% 以上農地／林地／茶園使用，硬體設施總面積嚴格控制在 40% 以下，建築高度受 10.5 公尺樹冠線限制。
+          </p>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">4</span>
+              坡度分析未載？明德茶特色？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>基地調整至東北岸水庫路上方緩坡高地（避開急陡坡），兼顧視野與水保安全；明德茶結合在地丘陵與水庫水氣形成清雅香氣、喉韻甘醇之茶品，強調食農手作製茶體驗。
+          </p>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">5</span>
+              水源水質問題，能種茶嗎？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>因應「鯉魚潭水庫南水北送」政策，明德水庫轉型為「農業用水」為主；茶園採用有機或低碳友善草生農法，全區最低點構築生態滯洪池與污水淨化系統，杜絕污染直排。
+          </p>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">6</span>
+              進度太慢？水庫壽命到期？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>採分期興建策略（第一期茶園步道、第二期工藝體驗）；以「低衝擊開發（LID）」與「高地退縮配置」取代水岸水泥開挖，延長水庫周邊綠帶生態壽命。
+          </p>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">7</span>
+              議題與規劃設計標準？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>探討山坡地水庫周邊農業區在面對水源轉型與觀光壓力下的「永續經營與地景縫合」；以「減量設計、生態保育、水土保持、合法容許」為四大設計標準。
+          </p>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">8</span>
+              茶園產值與生態放生迷思？
+            </h4>
+            <input type="checkbox" checked class="defense-checkbox w-4 h-4 accent-emerald-600 cursor-pointer">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>調整對策：</strong>透過六級化休閒轉型解決茶園產值低問題；明確修正「生態放生」迷思，改以維護在地原生動植物棲地、建立柴棺龜森林生態緩衝帶等科學保育手段。
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: 法規試算器 (CALCULATOR) -->
+    <!-- ========================================== -->
+    <section id="tab-calculator" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-100 text-cyan-800 border border-cyan-300">
+            <i class="fa-solid fa-sliders"></i> 即時法規檢核
+          </span>
+          <h2 class="text-xl font-bold text-slate-900 font-serif">休閒農業設施容許與邊坡退縮即時試算器</h2>
+        </div>
+        <p class="text-xs text-slate-600">
+          滑動下方數值滑桿，即時運算基地在《休閒農業輔導管理辦法》與《建築技術規則山坡地專章》下的設施上限與邊坡坡腳退縮安全距離。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Input Sliders Card -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-6 space-y-5 shadow-xs">
+          <h3 class="font-bold text-slate-900 text-sm pb-2 border-b border-slate-200">
+            <i class="fa-solid fa-gears text-cyan-600 mr-1.5"></i> 規劃參數輸入調整
+          </h3>
+
+          <!-- Slider 1: 基地總面積 -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-700">1. 基地規劃總面積 (公頃)</span>
+              <span id="val-total-area" class="font-mono font-bold text-cyan-700">10.5 公頃</span>
+            </div>
+            <input type="range" id="calc-total-area" min="5" max="30" step="0.5" value="10.5" class="w-full h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>5 公頃 (門檻)</span>
+              <span>10 公頃 (山坡地門檻)</span>
+              <span>30 公頃</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: 農業與綠地保留比例 -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-700">2. 實質農業與綠覆佔比 (%)</span>
+              <span id="val-agri-pct" class="font-mono font-bold text-emerald-700">92%</span>
+            </div>
+            <input type="range" id="calc-agri-pct" min="70" max="98" step="1" value="92" class="w-full h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>70%</span>
+              <span class="text-amber-700 font-bold">90% (法規紅線)</span>
+              <span>98%</span>
+            </div>
+          </div>
+
+          <!-- Slider 3: 邊坡垂直高度 H -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-700">3. 鄰近擋土邊坡垂直高 H (公尺)</span>
+              <span id="val-slope-height" class="font-mono font-bold text-amber-700">12 公尺</span>
+            </div>
+            <input type="range" id="calc-slope-height" min="2" max="30" step="1" value="12" class="w-full h-1.5 bg-slate-200 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>2 公尺</span>
+              <span>15 公尺 (退縮上限)</span>
+              <span>30 公尺</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Metric Result Card -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-6 space-y-4 flex flex-col justify-between shadow-xs">
+          <div>
+            <h3 class="font-bold text-slate-900 text-sm pb-2 border-b border-slate-200 flex items-center justify-between">
+              <span><i class="fa-solid fa-chart-line text-emerald-600 mr-1.5"></i> 法規檢核結果試算</span>
+              <span id="badge-agri-check" class="px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                合規 (≥90%)
+              </span>
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3 mt-4">
+              <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <span class="text-[11px] text-slate-500">實質常態農林用地</span>
+                <div id="res-agri-area" class="text-lg font-bold text-emerald-700 font-mono mt-1">9.66 公頃</div>
+                <span class="text-[10px] text-slate-500">茶園、果園、生態林帶</span>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <span class="text-[11px] text-slate-500">休閒設施總容許面積</span>
+                <div id="res-facility-area" class="text-lg font-bold text-amber-700 font-mono mt-1">0.84 公頃 (8%)</div>
+                <span class="text-[10px] text-slate-500">遠低於 40% 法定上限</span>
+              </div>
+            </div>
+
+            <!-- Setback Calculation Box -->
+            <div class="mt-4 bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-2">
+              <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                <i class="fa-solid fa-shield text-cyan-600"></i> 《建築技術規則》山坡地專章退縮檢核
+              </span>
+              <div class="flex justify-between items-center text-xs pt-1 border-t border-slate-200">
+                <span class="text-slate-600">邊坡坡腳退縮 (建物在下方):</span>
+                <strong id="res-setback-foot" class="text-emerald-700 font-mono text-sm">6.0 公尺 (D ≥ H/2)</strong>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-600">邊坡坡頂退縮 (建物在上方):</span>
+                <strong id="res-setback-top" class="text-cyan-700 font-mono text-sm">4.0 公尺 (D ≥ H/3)</strong>
+              </div>
+              <p class="text-[10px] text-slate-500 pt-1">
+                註：法定最低退縮不得小於 3m（坡腳）與 2m（坡頂），上限為 15m。
+              </p>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-slate-600 bg-emerald-50/70 p-2.5 rounded border border-emerald-200">
+            💡 本案落實小路彎彎露營區建物向內偏移 5 公尺，坡頂觀景台退縮 3 公尺，完全符合山坡地水保安全。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: 三生共榮 (4D PHILOSOPHY) -->
+    <!-- ========================================== -->
+    <section id="tab-pillars" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 font-serif">生產 ． 生活 ． 生態 ． 生命 — 4D 永續發展模型</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          串聯老田寮客庄風土，跳脫傳統觀光農場水泥化弊病，實踐人與自然深層連結。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 4D Item 1: 生產 -->
+        <div class="bg-white/90 border border-amber-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">農業生產 (Production)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            草生栽培老欉桶柑與梯田野茶。推動食農採茶製茶教育、柑橘果醬熬煮，串聯產地到餐桌與四季採摘遊程，實現一二三級六級產業化。
+          </p>
+          <div class="text-[11px] text-amber-700 font-semibold pt-2 border-t border-slate-200">
+            特色：桶柑 ． 東方美人茶 ． 魯冰花
+          </div>
+        </div>
+
+        <!-- 4D Item 2: 生活 -->
+        <div class="bg-white/90 border border-emerald-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">里山生活 (Living)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            小路彎彎免搭帳星空野奢露營、客庄茶席品茗、晨曦觀霧木棧道。推動青農返鄉駐村與低碳減法生活，讓旅人深刻體會明德高地山居漫活。
+          </p>
+          <div class="text-[11px] text-emerald-700 font-semibold pt-2 border-t border-slate-200">
+            特色：星空露營 ． 慢活步道 ． 客庄茶席
+          </div>
+        </div>
+
+        <!-- 4D Item 3: 生態 -->
+        <div class="bg-white/90 border border-cyan-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="w-10 h-10 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">水庫生態 (Ecology)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            92.4% 高綠覆率保安林保留。設置一級保育類柴棺龜生態爬坡緩衝廊道、條背螢火蟲低光害棲地與彩蝶蜜源帶，落實水質零污染護岸。
+          </p>
+          <div class="text-[11px] text-cyan-700 font-semibold pt-2 border-t border-slate-200">
+            特色：柴棺龜 ． 條背螢火蟲 ． 黃裳鳳蝶
+          </div>
+        </div>
+
+        <!-- 4D Item 4: 生命 -->
+        <div class="bg-white/90 border border-orange-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="w-10 h-10 rounded-lg bg-orange-100 text-terra flex items-center justify-center text-xl">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 text-base">文化生命 (Craft)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            傳承明德窯陳奶奶四天三夜柴火溫度的登窯工藝。落灰陶痕天然質樸，將廢棄陶片陶甕循環鑲嵌於步道與果園樹牌，銘刻老田寮開拓史。
+          </p>
+          <div class="text-[11px] text-terra font-semibold pt-2 border-t border-slate-200">
+            特色：柴燒登窯 ． 陶坏歲月 ． 口述史
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: 水土調查 (TERRAIN & HYDROLOGY) -->
+    <!-- ========================================== -->
+    <section id="tab-terrain" class="tab-panel hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Slope Chart Card -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <h3 class="font-bold text-slate-900 text-sm pb-2 border-b border-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-chart-pie text-emerald-600 mr-1.5"></i> 坡度分級面積佔比</span>
+            <span class="text-xs text-slate-500">1~6 級坡</span>
+          </h3>
+          <div class="h-60 flex items-center justify-center">
+            <canvas id="chart-slope"></canvas>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            平緩微坡 (42.5%) 承載核心遊憩設施；中度緩坡 (35.8%) 佈設等高線茶果園；陡坡 (>30%, 21.7%) 全面禁建列為水保保安林。
+          </p>
+        </div>
+
+        <!-- Land Ratio Chart Card -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <h3 class="font-bold text-slate-900 text-sm pb-2 border-b border-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-chart-pie text-amber-600 mr-1.5"></i> 土地利用現況配置</span>
+            <span class="text-xs text-slate-500">休閒農場專章</span>
+          </h3>
+          <div class="h-60 flex items-center justify-center">
+            <canvas id="chart-land"></canvas>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            常態農林生產與保育林帶高達 92.4%，硬體住宿與遊客體驗設施嚴格控制在 7.6%，完全合規。
+          </p>
+        </div>
+
+        <!-- Season Visitor Flow -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <h3 class="font-bold text-slate-900 text-sm pb-2 border-b border-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-chart-simple text-cyan-600 mr-1.5"></i> 四季旬味遊程指數</span>
+            <span class="text-xs text-slate-500">全年度無淡季</span>
+          </h3>
+          <div class="h-60 flex items-center justify-center">
+            <canvas id="chart-season"></canvas>
+          </div>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            透過秋冬採柑橘、春夏柚花螢火蟲與茶席、夏秋水岸野奢露營，平抑傳統農場淡旺季落差。
+          </p>
+        </div>
+      </div>
+
+      <!-- Slope & Hydrology Images Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">坡度分級與水保禁建線分析圖</h4>
+            <span class="text-[11px] text-slate-500">圖 3-6 (5.5MB 高清)</span>
+          </div>
+          <div class="rounded-lg overflow-hidden border border-slate-200 h-64 cursor-pointer bg-slate-100" onclick="openLightbox('images/image22.png', '山坡地坡度分級分析圖')">
+            <img src="images/image22.png" alt="坡度分析" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            明確劃定 30% 以上順向坡與 55% 六級坡禁建區（深紅標註），建築量體全數後退邊坡坡腳水平距離 D ≥ H/2。
+          </p>
+        </div>
+
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm">基地水文與地表排水匯流分析圖</h4>
+            <span class="text-[11px] text-slate-500">圖 3-12 (水文逕流)</span>
+          </div>
+          <div class="rounded-lg overflow-hidden border border-slate-200 h-64 cursor-pointer bg-slate-100" onclick="openLightbox('images/image49.png', '基地水文與地表排水匯流分析圖')">
+            <img src="images/image49.png" alt="水文分析" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            掌握基地等高線自然逕流匯流動線，在最低點「小路彎彎」端設置階梯沉砂池與生態人工濕地，落實零直排保護明德水庫。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 7: 柴棺龜生態 (ECOLOGY) -->
+    <!-- ========================================== -->
+    <section id="tab-ecology" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-terra border border-orange-200">
+              <i class="fa-solid fa-shield-cat"></i> 淺山珍稀物種庇護所
+            </span>
+            <h2 class="text-xl font-bold text-slate-900 font-serif mt-2">柴棺龜保育棲地與水岸藍綠生態廊道</h2>
+            <p class="text-xs text-slate-600 mt-1">
+              明德水庫半世紀低度農藥環境，孕育出全臺珍貴的一級保育類水龜與多樣飛羽昆蟲。
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold border border-emerald-300">
+              <i class="fa-solid fa-heart-pulse"></i> 棲地無水泥化保證
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Species 1: 柴棺龜 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="h-40 rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
+            <img src="images/image24.png" alt="動植物調查" class="w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-base">珍貴稀有 ． 柴棺龜</h4>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 border border-rose-200">一級保育類</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            水陸兩棲淡水龜，對水質與水岸邊坡緩衝極為敏感。本案規劃平緩草坡爬升道，在農塘與水庫水體交會處設立保護區與遠距木造觀察亭，禁止遊客直接踏入核心棲地。
+          </p>
+        </div>
+
+        <!-- Species 2: 條背螢火蟲 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="h-40 rounded-lg overflow-hidden border border-slate-200 bg-amber-50 flex items-center justify-center text-amber-500">
+            <i class="fa-solid fa-wand-magic-sparkles text-4xl"></i>
+          </div>
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-base">水質指標 ． 條背螢火蟲</h4>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200">環境指標生物</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            水質與環境清淨的重要指標。小路彎彎露營區與水塘周邊全面落實夜間低光害照明（色溫 &lt; 2700K，下照式防眩光燈具），打造初夏「微光螢河」生態解說亮點。
+          </p>
+        </div>
+
+        <!-- Species 3: 彩蝶群落 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="h-40 rounded-lg overflow-hidden border border-slate-200 bg-emerald-50 flex items-center justify-center text-emerald-600">
+            <i class="fa-solid fa-feather-pointed text-4xl"></i>
+          </div>
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-base">果園舞者 ． 柑橘鳳蝶與黃裳鳳蝶</h4>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">昆蟲多樣性</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            橙香森林滿山柑橘花與老柚花為天然寄主蜜源植物。串聯水塘林緣規劃淺山彩蝶生態廊道，每逢春暖花開，鳳蝶紫斑蝶翩翩起舞，展現人退自然進的里山美景。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 8: 案例轉譯 (BENCHMARKS) -->
+    <!-- ========================================== -->
+    <section id="tab-cases" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 font-serif">全臺五大經典標竿案例橫向對比與學習點</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          深入研究華陶窯、水里蛇窯、銅鑼茶廠、東風綠活與山美學，轉化為明德水庫獨創的規劃策略。
+        </p>
+      </div>
+
+      <!-- Case Study Table -->
+      <div class="overflow-x-auto bg-white/90 border border-slate-200 rounded-xl shadow-sm">
+        <table class="w-full text-xs text-left text-slate-700">
+          <thead class="text-[11px] text-slate-600 uppercase bg-slate-100 border-b border-slate-200">
+            <tr>
+              <th class="px-4 py-3">標竿案例與區位</th>
+              <th class="px-4 py-3">核心工藝與特色</th>
+              <th class="px-4 py-3">與本基地之共同點</th>
+              <th class="px-4 py-3">本案具體轉譯與實踐策略</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <!-- Row 1 -->
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3.5 font-bold text-slate-900">
+                1. 華陶窯<br><span class="text-slate-500 font-normal">苗栗苑裡火炎山麓</span>
+              </td>
+              <td class="px-4 py-3">相思柴燒登窯、台灣原生植物園林、客家合院黑瓦</td>
+              <td class="px-4 py-3">同處苗栗丘陵山坡地，具客庄歷史底蘊與陶藝傳承需求</td>
+              <td class="px-4 py-3 text-emerald-700 font-medium">
+                果園邊界利用原生植物構築生態緩衝帶；步道採在地石材與枕木鋪設，重現常民美學。
+              </td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3.5 font-bold text-slate-900">
+                2. 水里蛇窯<br><span class="text-slate-500 font-normal">南投水里百年柴窯</span>
+              </td>
+              <td class="px-4 py-3">工業遺址再生、土層剖面展示、碎陶甕循環美學</td>
+              <td class="px-4 py-3">面臨傳統陶瓷（明德窯）如何轉型為現代文創與體驗場域</td>
+              <td class="px-4 py-3 text-cyan-700 font-medium">
+                將明德窯失敗陶片應用於步道鑲嵌與樹牌；結合採果開發專屬手作「橘醬陶罐」文創。
+              </td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3.5 font-bold text-slate-900">
+                3. 銅鑼茶廠<br><span class="text-slate-500 font-normal">苗栗銅鑼九華山麓</span>
+              </td>
+              <td class="px-4 py-3">清水模簡約建築、無邊際水池、穿透式室內外茶園</td>
+              <td class="px-4 py-3">同處苗栗茶園丘陵帶，擁有相同茶產業背景與眺望景觀</td>
+              <td class="px-4 py-3 text-amber-700 font-medium">
+                建構高架觀景平台，將「梯田茶園綠」與「金黃橘園」納入湖景視野；設置果園茶飲休憩站。
+              </td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3.5 font-bold text-slate-900">
+                4. 東風綠活<br><span class="text-slate-500 font-normal">宜蘭冬山綠色森林</span>
+              </td>
+              <td class="px-4 py-3">柑橘文旦果園轉型、林下活動大草坪、產地到餐桌食農</td>
+              <td class="px-4 py-3">擁有果園農業背景，致力於食農手作與低衝擊休閒轉型</td>
+              <td class="px-4 py-3 text-purple-700 font-medium">
+                橙香森林直接借鏡其模式，規劃「秋冬採橘趣」動線，於果樹林下設置手作料理與教學節點。
+              </td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3.5 font-bold text-slate-900">
+                5. 山美學<br><span class="text-slate-500 font-normal">苗栗大湖山谷水岸</span>
+              </td>
+              <td class="px-4 py-3">低衝擊野奢露營 (LID)、微氣候利用、離地高架工法</td>
+              <td class="px-4 py-3">具備水庫湖畔與山谷緩坡環境特質，皆受嚴格生態敏感管制</td>
+              <td class="px-4 py-3 text-rose-700 font-medium">
+                小路彎彎露營區全面採高架木棧道與離地帳篷，減少地表開挖，保護下方柴棺龜陸域廊道。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 9: 點線面策 (STRATEGY & SWOT) -->
+    <!-- ========================================== -->
+    <section id="tab-strategy" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 font-serif">空間發展架構：點 ． 線 ． 面 立體佈局</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          以三大產業節點為核、綠色漫步動線為鏈、三生產業生活圈為體，帶動聚落全面創生。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 点 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="text-terra font-mono font-bold text-xs uppercase">1. 點的深化 (Nodes)</div>
+          <h4 class="font-bold text-slate-900 text-base">三大核心產業據點</h4>
+          <ul class="text-xs text-slate-600 space-y-1 mt-2">
+            <li>• <strong>文化點：</strong>明德柴窯與老田寮客庄聚落</li>
+            <li>• <strong>休閒點：</strong>小路彎彎山林緩坡野奢營地</li>
+            <li>• <strong>觀光點：</strong>橙香森林大面積柑橘果園與景觀餐廳</li>
+          </ul>
+        </div>
+
+        <!-- 线 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="text-emerald-700 font-mono font-bold text-xs uppercase">2. 線的串聯 (Pathways)</div>
+          <h4 class="font-bold text-slate-900 text-base">環狀慢遊步道網絡</h4>
+          <ul class="text-xs text-slate-600 space-y-1 mt-2">
+            <li>• <strong>低碳步道：</strong>串聯果園、露營區與柴窯的手作動線</li>
+            <li>• <strong>生態廊道：</strong>沿水塘與次生林緣佈設之彩蝶賞螢步道</li>
+            <li>• <strong>外部接駁：</strong>水庫路入口銜接環湖自行車道與海棠島</li>
+          </ul>
+        </div>
+
+        <!-- 面 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <div class="text-cyan-700 font-mono font-bold text-xs uppercase">3. 面的共好 (Living Circle)</div>
+          <h4 class="font-bold text-slate-900 text-base">綠色產業生活圈</h4>
+          <ul class="text-xs text-slate-600 space-y-1 mt-2">
+            <li>• <strong>三生融合：</strong>農業生產、里山生活與水庫生態合一</li>
+            <li>• <strong>青銀協力：</strong>青農返鄉平台與老農在地智慧合作</li>
+            <li>• <strong>環境共榮：</strong>確保明德水庫水質安全的永續休閒示範區</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SWOT Matrix Details -->
+      <div class="bg-white/90 border border-slate-200 rounded-xl p-6 shadow-sm">
+        <h3 class="font-bold text-slate-900 text-base mb-4 font-serif">SWOT 整合課題與目標樹架構</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="bg-emerald-50/50 p-4 rounded-lg border border-emerald-200 space-y-2">
+            <span class="text-emerald-800 font-bold">SO 增長策略：發揮山水與茶陶優勢，迎合休閒農業熱潮</span>
+            <p class="text-slate-600 leading-relaxed">
+              整合老田寮百年茶陶底蘊與《魯冰花》文學地景，打造沉浸式六級化體驗；主動銜接環湖遊客外溢效益。
+            </p>
+          </div>
+          <div class="bg-cyan-50/50 p-4 rounded-lg border border-cyan-200 space-y-2">
+            <span class="text-cyan-800 font-bold">WO 轉型策略：以青創與食農克服人口老化與產業弱化</span>
+            <p class="text-slate-600 leading-relaxed">
+              活化閒置農舍合院，引入青年駐村手作與數位行銷；梯田茶園改走高精緻茶陶美學，提升附加產值。
+            </p>
+          </div>
+          <div class="bg-amber-50/50 p-4 rounded-lg border border-amber-200 space-y-2">
+            <span class="text-amber-800 font-bold">ST 屏障策略：以高辨識度特色抵禦市場競爭</span>
+            <p class="text-slate-600 leading-relaxed">
+              全臺獨創「水庫高地野茶 × 明德柴燒陶」雙軸體驗，建立一般平原休閒農場無法複製之文化厚度。
+            </p>
+          </div>
+          <div class="bg-rose-50/50 p-4 rounded-lg border border-rose-200 space-y-2">
+            <span class="text-rose-800 font-bold">WT 防禦策略：嚴守低衝擊開發，防範生態超載</span>
+            <p class="text-slate-600 leading-relaxed">
+              堅持 90% 綠地維持、建物簷高 10.5m 管制與最低點污水淨化沉砂池，徹底杜絕開發對水庫造成污染。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 10: 實質專項 (DETAILED SYSTEMS) -->
+    <!-- ========================================== -->
+    <section id="tab-detail" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 font-serif">十大實質規劃專項設計系統</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          從戶外導視、公共藝術、鋪面排水到夜間照明色彩，全面落實減量美學與自然工法。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 1 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-terra">專項 01</span>
+          <h4 class="font-bold text-slate-900 text-base">戶外導視與指標系統</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            採用耐候鋼板與客庄相思木結合，於水庫路入口及分區節點設立低飽和度導視牌，融入山林景觀。
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-emerald-700">專項 02</span>
+          <h4 class="font-bold text-slate-900 text-base">公共藝術：陶痕地景</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            回收明德窯失敗陶坏與柴燒碎陶甕，於核心草坪與茶席廣場創作大地陶藝裝置，訴說水稻變陶坏的故事。
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-amber-700">專項 03</span>
+          <h4 class="font-bold text-slate-900 text-base">農場步道系統設計</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            採主環道（透水磚/枕木，寬2.5m）與採果巡檢土徑（寬1.2m）分級，坡度順應等高線控制於 8% 以下。
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-cyan-700">專項 04</span>
+          <h4 class="font-bold text-slate-900 text-base">全區透水鋪面系統</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            停車場全面鋪設植草格，人行廣場採用連鎖透水磚與碎石壓實，全場地表透水率高達 90% 以上。
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-purple-700">專項 05</span>
+          <h4 class="font-bold text-slate-900 text-base">自然排水與沉砂系統</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            依山勢設置分級跌水石階消能，雨水經生態草溝匯入全區最低點人工濕地過濾，杜絕泥砂進入水庫。
+          </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-2 shadow-xs">
+          <span class="text-xs font-bold text-rose-700">專項 06</span>
+          <h4 class="font-bold text-slate-900 text-base">夜間低光害照明計畫</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            全區禁用高強投射燈；露營與步道採 2200K~2700K 暖光矮柱燈，保護螢火蟲、夜鷺與山羌夜間活動。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 11: 田野記憶 (ORAL HISTORY) -->
+    <!-- ========================================== -->
+    <section id="tab-interview" class="tab-panel hidden space-y-6">
+      
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-terra border border-orange-200">
+          <i class="fa-solid fa-microphone-lines"></i> 老田寮聚落口述史
+        </span>
+        <h2 class="text-xl font-bold text-slate-900 font-serif mt-2">田野專訪：明德窯負責人 陳奶奶</h2>
+        <p class="text-xs text-slate-600 mt-1">
+          訪談者：文和豪 規劃組（張茗豪、陳文鎮） ｜ 訪談地點：苗栗明德水庫明德柴窯
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+        <!-- Photo Box -->
+        <div class="bg-white/90 border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="h-64 rounded-lg overflow-hidden border border-slate-200 cursor-pointer bg-slate-100" onclick="openLightbox('images/image90.png', '訪談陳奶奶現場紀錄照片')">
+            <img src="images/image90.png" alt="訪談陳奶奶" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="h-44 rounded-lg overflow-hidden border border-slate-200 cursor-pointer bg-slate-100" onclick="openLightbox('images/image91.png', '明德柴窯登窯外貌')">
+            <img src="images/image91.png" alt="柴窯外貌" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <p class="text-[11px] text-slate-500 leading-relaxed italic text-center">
+            「水稻田化作陶坏，柴火燃成了歲月。」
+          </p>
+        </div>
+
+        <!-- Dialogue Box -->
+        <div class="lg:col-span-2 bg-white/90 border border-slate-200 rounded-xl p-6 space-y-4 shadow-xs">
+          <h3 class="font-bold text-slate-900 text-base font-serif pb-2 border-b border-slate-200">
+            訪談實錄逐字摘要
+          </h3>
+
+          <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-emerald-700">文和豪：</strong>「陳奶奶，當初怎麼會想在山上做窯？這手藝做很久了吧？」
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-terra">陳奶奶：</strong>「哪有一開始就想做這個。年輕時在工廠上班，遇到裁員沒工作，才跟著先生回到這片夫家的山地。一開始只是自己有興趣摸摸泥巴，後來就架了電窯。那時候做電窯做了二、三十年，電窯燒製一定要上釉藥，雖然穩定，但顏色總是少了一點天地給的自然感覺。」
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-emerald-700">文和豪：</strong>「那後來是怎麼轉成柴燒的？」
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-terra">陳奶奶：</strong>「大概十幾年前吧，第一次接觸到柴燒，整個人被迷住了。柴燒不上釉，木材燃燒的落灰與火痕直接咬在坏體上，每一件出來的紋路、色彩都不一樣，變化萬千。不過柴燒真辛苦，一開窯就是四天三夜不能斷火，日夜都要盯著溫度添柴，但看到出窯那一刻的成色，就覺得這幾天不睡覺都值得。」
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-emerald-700">文和豪：</strong>「我們一路走上來，看到周圍有些階梯狀的地形，現在好像很多都長滿雜草了？」
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200">
+              <strong class="text-terra">陳奶奶：</strong>「那一整片，連同現在明德窯這塊地，以前全是我夫家種水稻的田。最裡頭那個凹處還有早期蓄水灌溉的蓄水池。後來水稻不種了，大家改種柚子、橘子。現在我們這一輩年紀都大了，山裡也沒有年輕人願意留下來接手種樹，地就漸漸荒掉了。只剩附近幾戶鄰居還在顧一點橘子園，大部分田區都回歸山林囉。」
+            </div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-emerald-50 border border-emerald-300 text-xs text-emerald-900 leading-relaxed">
+            <strong>💡 規劃心得歸納：</strong>
+            水稻田化作陶坏，柴火燃成了歲月。陳奶奶用四天三夜的火候，把這片荒廢梯田的風土與生活記憶，一層層燒結進陶器的紋理之中。這段田野對話成為本案「工藝復興」與「青農返鄉」最強大的情感核心與人文立論基礎。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 12: 高清圖庫展覽 (GALLERY & FILES) -->
+    <!-- ========================================== -->
+    <section id="tab-gallery" class="tab-panel hidden space-y-6">
+      
+      <!-- Top Download & File Center Box -->
+      <div class="bg-white/90 border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-terra border border-orange-200">
+              <i class="fa-solid fa-folder-open"></i> 期末成果原始檔案庫
+            </span>
+            <h2 class="text-xl font-bold text-slate-900 font-serif mt-2">高解析度成果總展板與完整論文檢閱</h2>
+            <p class="text-xs text-slate-600 mt-1">
+              本網站根據當前資料夾內的兩大核心專案檔案建構，可直接點擊在本地閱讀或下載。
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="../0910564213張茗豪3A0 1113總.pdf" target="_blank" class="px-4 py-2 bg-terra hover:bg-terradark text-white rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-file-pdf"></i> 開啟 3A0 總展板 (376 MB)
+            </a>
+            <a href="../總1113.docx" target="_blank" class="px-4 py-2 bg-white hover:bg-slate-100 text-slate-800 rounded-lg text-xs font-bold border border-slate-300 transition flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-file-word text-blue-600"></i> 開啟論文全文 (73.7 MB)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Filter Chips -->
+      <div class="flex flex-wrap items-center gap-1.5 bg-white/90 p-2 rounded-xl border border-slate-200 shadow-xs">
+        <span class="text-xs font-bold text-slate-600 px-2">圖資分類：</span>
+        <button class="gal-filter-btn active px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition shadow-xs" data-cat="all">全部成果圖資</button>
+        <button class="gal-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="planning">全區規劃與配置</button>
+        <button class="gal-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="site">基地現況與分析</button>
+        <button class="gal-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="env">水土與環境調查</button>
+        <button class="gal-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="cases">標竿案例對比</button>
+        <button class="gal-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-cat="field">田野歷史與訪談</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-full-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <!-- Dynamically rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer (Bright Mode) -->
+  <footer class="bg-white border-t border-slate-200 text-slate-600 text-xs py-8 mt-12 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center">
+      <div class="flex flex-wrap justify-center gap-4 text-slate-700 font-medium">
+        <span>主規劃者：張茗豪 (0910564213)</span>
+        <span>•</span>
+        <span>協同規劃：陳文鎮</span>
+        <span>•</span>
+        <span>訪談感謝：明德窯 陳奶奶</span>
+        <span>•</span>
+        <span>作品名稱：老田寮茶陶水岸 ． 明德山居慢活</span>
+      </div>
+      <p class="text-slate-500 text-[11px]">
+        苗栗縣頭屋鄉明德水庫東北岸休閒農業區整體規劃設計 ｜ 互動戰情導覽系統 ｜ 整合 3A0 評圖總展板與 104 頁成果報告
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="app-lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <button id="lightbox-close-btn" class="absolute top-4 right-5 text-white/80 hover:text-white text-3xl font-bold cursor-pointer" aria-label="關閉">&times;</button>
+    <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+      <img id="lightbox-modal-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/20">
+      <div id="lightbox-modal-cap" class="text-white text-sm mt-3 font-semibold text-center"></div>
+    </div>
+  </div>
+
+  <script src="app.js?v=20261112v4"></script>
+</body>
+</html>
