@@ -1,3 +1,12 @@
+/* 🐢 柴棺龜 Yellow-margined Box Turtle Cursor (全站龜龜游標) */
+html, body, * {
+    cursor: url('images/turtle-cursor.svg') 16 12, auto !important;
+}
+a, button, [role="button"], input[type="submit"],
+.cursor-pointer, [data-tab], label, select, input {
+    cursor: url('images/turtle-cursor.svg') 16 12, pointer !important;
+}
+
 /* Base Resets & Utilities */
 .hidden {
   display: none !important;
