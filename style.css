@@ -1,0 +1,124 @@
+/* Base Resets & Utilities */
+.hidden {
+  display: none !important;
+}
+
+.tab-panel.hidden {
+  display: none !important;
+}
+
+.tab-panel:not(.hidden) {
+  display: block !important;
+}
+
+/* Custom Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mountain Mist and Lake Waterfront Backdrop (明亮晴空 ． 山中水岸實景背景) */
+.lake-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(to bottom, rgba(240, 253, 250, 0.75) 0%, rgba(248, 250, 252, 0.82) 45%, rgba(236, 253, 245, 0.90) 100%),
+    url('images/image44.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease;
+}
+
+/* Subtle Sunlit Lake Waves */
+.lake-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  opacity: 0.35;
+  overflow: hidden;
+}
+
+.lake-wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.lake-wave-back {
+  animation: wave-move 22s linear infinite;
+  opacity: 0.4;
+}
+
+.lake-wave-front {
+  animation: wave-move 14s linear infinite reverse;
+  opacity: 0.7;
+}
+
+@keyframes wave-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Map Pins Pulsing */
+.map-pin-pulse::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  animation: pin-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pin-pulse {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Lightbox Modal */
+#app-lightbox.modal-active {
+  display: flex !important;
+  animation: modal-fade-in 0.2s ease forwards;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Range Slider Styling */
+input[type="range"] {
+  accent-color: #c86d51;
+}
+
+/* Teapot cursor when active */
+.teapot-cursor {
+  cursor: grab !important;
+}
+
+/* Smooth Tab Transitions */
+.tab-panel {
+  animation: tab-fade 0.2s ease-out;
+}
+
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
